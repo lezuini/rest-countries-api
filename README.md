@@ -4,8 +4,8 @@ This is a solution to the [REST Countries API with color theme switcher challeng
 
 ## Links 🔗
 
-- Solution URL: [Repository](https://github.com/leonardomeza87/interactive-pricing-component)
-- Live Site URL: [GitHub Pages](https://leonardomeza87.github.io/interactive-pricing-component/)
+- Solution URL: [Repository](https://github.com/leonardomeza87/rest-countries-api)
+- Live Site URL: [GitHub Pages](https://leonardomeza87.github.io/rest-countries-api)
 
 ## The challenge 💻
 
@@ -24,14 +24,15 @@ Users should be able to:
 
 ### Built with
 
-- CSS custom properties.
+- [SASS](https://sass-lang.com).
 - Flexbox.
 - Desktop-first workflow.
-- [React](https://reactjs.org/) - JS library.
+- [React](https://reactjs.org) - JS library.
+- [React Router](https://reactrouter.com) - React library
 
 ### Useful resources
 
-- [Progress bar in an input range](https://stackoverflow.com/questions/38095650/style-input-range-to-look-like-a-progress-bar) - The last answer helped me to make the progress bar visible in Google Chrome.
+- Hmm {•̃\_•̃}.
 
 ### More about me
 
@@ -45,5 +46,5 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 To clone:
 
 ```
-git clone https://github.com/leonardomeza87/interactive-pricing-component.git
+git clone https://github.com/leonardomeza87/rest-countries-api.git
 ```
