@@ -24,7 +24,7 @@ function App() {
   return (
     <div className="app">
       <Header />
-      <Router>
+      <Router basename="/rest-countries-api">
         <Switch>
           <Route exact path="/">
             {data && <Homepage data={data} />}

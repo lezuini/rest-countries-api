@@ -24,7 +24,7 @@ Users should be able to:
 
 ### Built with
 
-- [SASS](https://sass-lang.com).
+- [SASS](https://sass-lang.com) - CSS preprocessor.
 - Flexbox.
 - Desktop-first workflow.
 - [React](https://reactjs.org) - JS library.
