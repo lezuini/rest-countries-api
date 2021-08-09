@@ -8,7 +8,7 @@ const Card = ({ country }) => {
         <h2>{country.name}</h2>
         <p>
           <strong>Population: </strong>
-          {country.population}
+          {new Intl.NumberFormat().format(country.population)}
         </p>
         <p>
           <strong>Region: </strong>
