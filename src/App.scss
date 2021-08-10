@@ -185,7 +185,7 @@ $card-width: 15.875rem;
     padding: 3rem 3rem;
   }
   @media screen and (max-width: 470px) {
-    padding: 1.25rem 2rem;
+    padding: 1.25rem 2rem 4rem;
   }
 }
 
@@ -434,4 +434,11 @@ $card-width: 15.875rem;
       object-fit: cover;
     }
   }
+}
+
+.loader {
+  display: block;
+  width: 100%;
+  height: 0;
+  background-color: red;
 }

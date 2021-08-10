@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
+
 const CountryPage = () => {
   return (
     <div>
-      <h2>Country page</h2>
+      <Link to="/" />
     </div>
   );
 };

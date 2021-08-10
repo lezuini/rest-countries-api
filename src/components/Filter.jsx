@@ -16,11 +16,6 @@ const Filter = ({ updateRegion }) => {
     }, 100);
   };
 
-  // const handleOption = (country) => {
-  //   setSelected(false);
-  //   setRegion(country);
-  // };
-
   useEffect(() => {
     updateRegion(region);
   }, [region, updateRegion]);
