@@ -1,25 +1,26 @@
 {
   "files": {
-    "main.css": "/rest-countries-api/static/css/main.9e1b2191.chunk.css",
-    "main.js": "/rest-countries-api/static/js/main.d1ca3506.chunk.js",
-    "main.js.map": "/rest-countries-api/static/js/main.d1ca3506.chunk.js.map",
+    "main.css": "/rest-countries-api/static/css/main.7c193134.chunk.css",
+    "main.js": "/rest-countries-api/static/js/main.8f47b1d7.chunk.js",
+    "main.js.map": "/rest-countries-api/static/js/main.8f47b1d7.chunk.js.map",
     "runtime-main.js": "/rest-countries-api/static/js/runtime-main.dfd69e2b.js",
     "runtime-main.js.map": "/rest-countries-api/static/js/runtime-main.dfd69e2b.js.map",
-    "static/js/2.a92386ba.chunk.js": "/rest-countries-api/static/js/2.a92386ba.chunk.js",
-    "static/js/2.a92386ba.chunk.js.map": "/rest-countries-api/static/js/2.a92386ba.chunk.js.map",
+    "static/js/2.41b79135.chunk.js": "/rest-countries-api/static/js/2.41b79135.chunk.js",
+    "static/js/2.41b79135.chunk.js.map": "/rest-countries-api/static/js/2.41b79135.chunk.js.map",
     "index.html": "/rest-countries-api/index.html",
-    "static/css/main.9e1b2191.chunk.css.map": "/rest-countries-api/static/css/main.9e1b2191.chunk.css.map",
-    "static/js/2.a92386ba.chunk.js.LICENSE.txt": "/rest-countries-api/static/js/2.a92386ba.chunk.js.LICENSE.txt",
+    "static/css/main.7c193134.chunk.css.map": "/rest-countries-api/static/css/main.7c193134.chunk.css.map",
+    "static/js/2.41b79135.chunk.js.LICENSE.txt": "/rest-countries-api/static/js/2.41b79135.chunk.js.LICENSE.txt",
+    "static/media/arrow-back.39940f16.svg": "/rest-countries-api/static/media/arrow-back.39940f16.svg",
     "static/media/chevron-down.6e2c90ee.svg": "/rest-countries-api/static/media/chevron-down.6e2c90ee.svg",
-    "static/media/logo-github.4f47f030.svg": "/rest-countries-api/static/media/logo-github.4f47f030.svg",
-    "static/media/logo-twitter.272e518a.svg": "/rest-countries-api/static/media/logo-twitter.272e518a.svg",
+    "static/media/logo-github.bdd8bb6b.svg": "/rest-countries-api/static/media/logo-github.bdd8bb6b.svg",
+    "static/media/logo-twitter.da0be46b.svg": "/rest-countries-api/static/media/logo-twitter.da0be46b.svg",
     "static/media/moon.1d93a65e.svg": "/rest-countries-api/static/media/moon.1d93a65e.svg",
     "static/media/search.637c6b3c.svg": "/rest-countries-api/static/media/search.637c6b3c.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.dfd69e2b.js",
-    "static/js/2.a92386ba.chunk.js",
-    "static/css/main.9e1b2191.chunk.css",
-    "static/js/main.d1ca3506.chunk.js"
+    "static/js/2.41b79135.chunk.js",
+    "static/css/main.7c193134.chunk.css",
+    "static/js/main.8f47b1d7.chunk.js"
   ]
 }
