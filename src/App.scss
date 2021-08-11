@@ -1,3 +1,5 @@
+@use "sass:math";
+
 //Light colors
 
 //Light Mode Text
@@ -22,6 +24,9 @@ $border-radius: 0.375rem;
 $box-shadow: 0 0.25rem 0.75rem $dark-shadow;
 $card-width: 15.875rem;
 
+//This is the width of the scrollbar, tested in Chrome 92, Edge 90 and Firefox 92
+$scroll-width: 17px;
+
 .theme {
   --element: #{$white};
   --background: #{$very-light-gray};
@@ -38,6 +43,9 @@ $card-width: 15.875rem;
 
 .app {
   background-color: var(--background);
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 80px 1fr;
 }
 
 .header {
@@ -50,81 +58,14 @@ $card-width: 15.875rem;
   align-items: center;
   padding: 0 5rem;
 
-  @media screen and (max-width: 1279px) {
-    padding: 0 3rem;
-  }
-  @media screen and (max-width: 1184px) {
-    padding: 0 5rem;
-  }
-  @media screen and (max-width: 980px) {
-    padding: 0 3rem;
-  }
-  @media screen and (max-width: 920px) {
-    padding: 0 5rem;
-  }
-  @media screen and (max-width: 756px) {
-    padding: 0 3rem;
-  }
-  @media screen and (max-width: 630px) {
-    padding: 0 5rem;
-  }
-  @media screen and (max-width: 580px) {
-    padding: 0 3rem;
-  }
-  @media screen and (max-width: 470px) {
-    padding: 0 2rem;
-    height: 4.25rem;
-  }
-
   h1 {
-    color: var(--text);
     font-size: 24px;
     line-height: 24px;
-
-    @media screen and (max-width: 630px) {
-      font-size: 18px;
-      line-height: 18px;
-    }
-    @media screen and (max-width: 470px) {
-      font-size: 14px;
-      line-height: 14px;
-    }
-  }
-
-  .social {
-    height: 3.5rem;
-    width: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    @media screen and (max-width: 490px) {
-      height: 3rem;
-      width: 60px;
-    }
+    cursor: pointer;
 
     a {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    svg {
-      height: 40px;
-      line-height: 40px;
-      padding: 8px;
-      cursor: pointer;
-      border-radius: 50%;
-      fill: var(--text);
-
-      @media screen and (max-width: 490px) {
-        height: 30px;
-        line-height: 30px;
-        padding: 6px;
-      }
-
-      &:hover {
-        background-color: $dark-shadow;
-      }
+      color: var(--text);
+      padding: 0.5rem 0;
     }
   }
 
@@ -133,7 +74,8 @@ $card-width: 15.875rem;
     justify-content: flex-end;
     align-items: center;
     height: 3rem;
-    // width: 9rem;
+    padding: 0 1rem;
+    margin-right: -1rem;
     font-size: 16px;
     line-height: 16px;
     font-weight: 600;
@@ -143,50 +85,19 @@ $card-width: 15.875rem;
     border-radius: 0.375rem;
     color: var(--text);
 
-    @media screen and (max-width: 470px) {
-      font-size: 12px;
-      line-height: 12px;
+    &:hover {
+      background-color: $dark-shadow;
     }
-
-    // &:hover {
-    //   background-color: $dark-shadow;
-    // }
 
     svg {
       height: 17px;
       margin-right: 0.5rem;
-
-      @media screen and (max-width: 470px) {
-        height: 14px;
-      }
     }
   }
 }
 
 .home {
   padding: 3rem 5rem;
-
-  @media screen and (max-width: 1279px) {
-    padding: 3rem 3rem;
-  }
-  @media screen and (max-width: 1184px) {
-    padding: 3rem 5rem;
-  }
-  @media screen and (max-width: 980px) {
-    padding: 3rem 3rem;
-  }
-  @media screen and (max-width: 920px) {
-    padding: 3rem 5rem;
-  }
-  @media screen and (max-width: 756px) {
-    padding: 3rem 3rem;
-  }
-  @media screen and (max-width: 630px) {
-    padding: 3rem 3rem;
-  }
-  @media screen and (max-width: 470px) {
-    padding: 1.25rem 2rem 4rem;
-  }
 }
 
 .utilities {
@@ -194,14 +105,8 @@ $card-width: 15.875rem;
   justify-content: space-between;
   margin-bottom: 48px;
 
-  @media screen and (max-width: 630px) {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
   .search-bar {
     width: 30rem;
-    // width: 15rem;
     height: 3.5rem;
     background-color: var(--element);
     border-radius: 0.375rem;
@@ -210,18 +115,6 @@ $card-width: 15.875rem;
     justify-content: center;
     align-items: center;
     position: relative;
-    // overflow: hidden;
-
-    @media screen and (max-width: 920px) {
-      width: 16rem;
-    }
-    @media screen and (max-width: 630px) {
-      width: 100%;
-      margin-bottom: 2rem;
-    }
-    @media screen and (max-width: 470px) {
-      height: 2.5rem;
-    }
 
     svg {
       height: 20px;
@@ -229,11 +122,6 @@ $card-width: 15.875rem;
       left: 32px;
       top: 17px;
       fill: var(--input);
-
-      @media screen and (max-width: 470px) {
-        height: 16px;
-        top: 12px;
-      }
     }
 
     input {
@@ -250,11 +138,6 @@ $card-width: 15.875rem;
 
       color: var(--text);
 
-      @media screen and (max-width: 470px) {
-        font-size: 11px;
-        line-height: 11px;
-      }
-
       &::placeholder {
         color: var(--input);
         opacity: 1;
@@ -270,10 +153,6 @@ $card-width: 15.875rem;
     border-radius: 0.375rem;
     position: relative;
 
-    @media screen and (max-width: 470px) {
-      height: 2.5rem;
-    }
-
     button {
       width: 100%;
       height: 100%;
@@ -287,11 +166,6 @@ $card-width: 15.875rem;
       font-size: 14px;
       line-height: 14px;
 
-      @media screen and (max-width: 470px) {
-        font-size: 11px;
-        line-height: 11px;
-      }
-
       &.unfolded svg {
         transform: rotateZ(180deg);
       }
@@ -302,11 +176,6 @@ $card-width: 15.875rem;
         right: 18px;
         top: 1.25rem;
         transition: transform 0.2s ease-in-out;
-
-        @media screen and (max-width: 470px) {
-          height: 13px;
-          top: 0.8rem;
-        }
       }
     }
 
@@ -330,16 +199,11 @@ $card-width: 15.875rem;
 
       .option {
         width: 100%;
-        padding: 7px 12px;
+        padding: 10px 12px;
         cursor: pointer;
         font-size: 14px;
         line-height: 14px;
-        border-radius: $border-radius / 2;
-
-        @media screen and (max-width: 470px) {
-          font-size: 11px;
-          line-height: 11px;
-        }
+        border-radius: math.div($border-radius, 2);
 
         &:hover {
           background-color: $dark-shadow;
@@ -360,22 +224,8 @@ $card-width: 15.875rem;
   grid-template-columns: repeat(4, $card-width);
   row-gap: 75px;
 
-  @media screen and (max-width: 1184px) {
-    grid-template-columns: repeat(3, $card-width);
-  }
-  @media screen and (max-width: 920px) {
-    grid-template-columns: repeat(2, $card-width);
-    justify-content: space-evenly;
-  }
-  @media screen and (max-width: 684px) {
-    justify-content: space-between;
-  }
-  @media screen and (max-width: 630px) {
-    grid-template-columns: repeat(1, $card-width);
-    justify-content: center;
-  }
-  @media screen and (max-width: 470px) {
-    row-gap: 42px;
+  a {
+    text-decoration: none;
   }
 }
 
@@ -388,7 +238,6 @@ $card-width: 15.875rem;
   height: 21rem;
   border-radius: 0.375rem;
   background-color: var(--element);
-  // margin-bottom: 75px;
   box-shadow: $box-shadow;
 
   overflow: hidden;
@@ -396,10 +245,6 @@ $card-width: 15.875rem;
   color: var(--text);
 
   transition: transform 0.2s ease-in-out;
-
-  @media screen and (max-width: 470px) {
-    width: 16rem;
-  }
 
   &:hover {
     transform: scale(1.05);
@@ -441,4 +286,362 @@ $card-width: 15.875rem;
   width: 100%;
   height: 0;
   background-color: red;
+}
+
+.country-page {
+  padding: 3rem 5rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+
+  .country-container {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    width: 100%;
+
+    img {
+      width: 100%;
+      height: 400px;
+      max-width: 560px;
+      object-fit: cover;
+    }
+
+    .text-container {
+      display: flex;
+      flex-direction: column;
+      color: var(--text);
+      padding: 44px 0 0 38px;
+
+      h1 {
+        margin-bottom: 38px;
+        font-size: 32px;
+        line-height: 32px;
+      }
+      .details {
+        margin-bottom: 63px;
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+
+        p {
+          margin-bottom: 16px;
+          font-size: 16px;
+          line-height: 16px;
+
+          strong {
+            font-weight: 600;
+          }
+        }
+      }
+
+      .borders {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 100%;
+        min-height: 56px;
+
+        strong {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          height: 28px;
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 16px;
+          margin-right: 1rem;
+          white-space: nowrap;
+        }
+
+        .container {
+          display: flex;
+          flex-wrap: wrap;
+
+          .border {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 96px;
+            width: max-content;
+            height: 28px;
+            padding: 0 12px;
+            background-color: var(--element);
+            box-shadow: $box-shadow;
+            border-radius: math.div($border-radius, 2);
+            color: var(--text);
+            margin: 0 10px 10px 0;
+            font-size: 14px;
+            line-height: 14px;
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+  }
+}
+
+.back {
+  width: 8.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--element);
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  text-decoration: none;
+  margin-bottom: 3rem;
+
+  button {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    border: none;
+    font-size: 16px;
+    line-height: 16px;
+    position: relative;
+    cursor: pointer;
+    color: var(--text);
+
+    svg {
+      position: absolute;
+      height: 1rem;
+      width: 1rem;
+      left: 2rem;
+    }
+
+    p {
+      padding-left: 0.5rem;
+    }
+  }
+}
+
+.retry {
+  width: 8.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--element);
+  border: none;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  margin-bottom: 80px;
+  font-size: 16px;
+  line-height: 16px;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.error-page {
+  .container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 2rem;
+    text-align: center;
+  }
+  .container.error {
+    padding: 0 2rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h1 {
+    text-align: center;
+    color: var(--text);
+    margin-bottom: 2rem;
+    font-size: 24px;
+    line-height: 32px;
+    width: 100%;
+  }
+}
+
+footer {
+  height: 64px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 2rem;
+
+  a {
+    height: 40px;
+
+    &:first-child {
+      margin-right: 0.5rem;
+    }
+
+    svg {
+      height: 100%;
+      padding: 8px;
+      cursor: pointer;
+      border-radius: 50%;
+      fill: var(--text);
+
+      &:hover {
+        background-color: $dark-shadow;
+      }
+    }
+  }
+}
+
+.loader-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.loader-animation {
+  display: block;
+  height: 4rem;
+  width: 4rem;
+}
+
+.loader-animation:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  // margin: 8px;
+  border-radius: 50%;
+  border: 6px solid var(--text);
+  border-color: var(--text) transparent var(--text) transparent;
+  animation: rotate 1.2s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 1251px) {
+  .countries-container {
+    grid-template-columns: repeat(3, $card-width);
+  }
+}
+@media screen and (max-width: 972px) {
+  .header {
+    padding: 0 5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 15.875rem);
+    justify-content: space-evenly;
+    justify-items: flex-end;
+
+    h1 {
+      width: 100%;
+    }
+
+    button {
+      width: max-content;
+    }
+  }
+  .utilities {
+    display: grid;
+    grid-template-columns: repeat(2, $card-width);
+    justify-content: space-evenly;
+    justify-items: flex-end;
+    .search-bar {
+      width: 100%;
+    }
+  }
+  .countries-container {
+    grid-template-columns: repeat(2, $card-width);
+    justify-content: space-evenly;
+  }
+}
+@media screen and (max-width: 743px) {
+  .header {
+    justify-content: space-between;
+  }
+  .utilities {
+    justify-content: space-between;
+  }
+  .countries-container {
+    justify-content: space-between;
+  }
+}
+@media screen and (max-width: 710px) {
+  .header {
+    padding: 0 3rem;
+  }
+  .home {
+    padding: 3rem 3rem;
+  }
+}
+@media screen and (max-width: 640px) {
+  .countries-container {
+    grid-template-columns: repeat(1, $card-width);
+    justify-content: center;
+
+    .card {
+      width: 16.5rem;
+    }
+  }
+}
+@media screen and (max-width: 603px) {
+  .header {
+    display: flex;
+
+    h1 {
+      width: max-content;
+    }
+  }
+  .utilities {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+
+    .search-bar {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+  }
+}
+@media screen and (max-width: 580px) {
+  .header {
+    h1 {
+      font-size: 21px;
+      line-height: 21px;
+    }
+  }
+}
+@media screen and (max-width: 480px) {
+  .header {
+    padding: 0 2rem;
+
+    h1 {
+      font-size: 18px;
+      line-height: 18px;
+    }
+    button {
+      font-size: 14px;
+      line-height: 14px;
+
+      svg {
+        height: 14px;
+      }
+    }
+  }
+  .utilities {
+    margin-bottom: 2rem;
+  }
+  .home {
+    padding: 2rem 2rem;
+  }
+  .countries-container {
+    row-gap: 40px;
+  }
 }

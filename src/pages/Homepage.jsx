@@ -15,15 +15,23 @@ const Homepage = ({ data }) => {
     setUpdater(0);
   }, []);
 
+  const filterByQuery = useCallback(
+    (query) => {
+      let filteredData = data.filter((country) =>
+        country.name.toLowerCase().includes(query)
+      );
+      setCountries(filteredData);
+    },
+    [data]
+  );
+
   useEffect(() => {
-    console.log(region);
     if (region === "Filter by Region") {
       return false;
     } else if (region === "All") {
       setCountries(data);
     } else {
       let newData = data.filter((a) => a.region === region);
-      console.log(newData);
       setCountries(newData);
     }
   }, [region, data]);
@@ -35,7 +43,7 @@ const Homepage = ({ data }) => {
   return (
     <div className="home">
       <div className="utilities">
-        <SearchBar />
+        <SearchBar filterByQuery={filterByQuery} />
         <Filter updateRegion={updateRegion} />
       </div>
       <CardsGenerator

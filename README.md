@@ -33,6 +33,7 @@ Users should be able to:
 ### Useful resources
 
 - Hmm {•̃\_•̃}.
+- https://stackoverflow.com/questions/53071774/reactjs-delay-onchange-while-typing
 
 ### More about me
 

@@ -10,11 +10,9 @@ const Loader = ({ increaseChunks, condition }) => {
       if (target.isIntersecting) {
         if (counter === true) {
           setCounter(false);
-          console.log("Entering");
           setTimeout(() => {
             increaseChunks();
             setCounter(true);
-            console.log("Reloading");
           }, 10);
         }
       }
