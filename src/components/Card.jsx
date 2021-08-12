@@ -28,3 +28,5 @@ const Card = ({ country, scrollUp }) => {
 };
 
 export default Card;
+
+//https://github.com/leonardomeza87

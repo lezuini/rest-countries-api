@@ -52,3 +52,5 @@ const SearchBar = ({ filterByQuery }) => {
 };
 
 export default SearchBar;
+
+// https://github.com/leonardomeza87

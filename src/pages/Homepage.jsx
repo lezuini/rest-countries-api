@@ -53,8 +53,6 @@ const Homepage = ({ data }) => {
       let newData = data.filter((a) => a.region === region);
       setCountries(newData);
       localStorage.setItem("countries", JSON.stringify(newData));
-
-      console.log(newData);
     }
   }, [region, data]);
 
@@ -88,3 +86,5 @@ const Homepage = ({ data }) => {
 };
 
 export default Homepage;
+
+// https://github.com/leonardomeza87

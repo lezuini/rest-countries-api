@@ -35,3 +35,5 @@ const ErrorPage = ({ error }) => {
 };
 
 export default ErrorPage;
+
+// https://github.com/leonardomeza87

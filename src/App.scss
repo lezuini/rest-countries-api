@@ -440,7 +440,7 @@ $scroll-width: 17px;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 1rem;
-      max-height: 999999px;
+      max-height: 999999px; //This is to fix a problem with chrome, believe me
 
       p {
         margin-bottom: 16px;
@@ -1017,3 +1017,5 @@ footer {
     }
   }
 }
+
+// https://github.com/leonardomeza87

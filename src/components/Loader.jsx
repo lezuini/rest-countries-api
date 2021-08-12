@@ -41,3 +41,5 @@ const Loader = ({ increaseChunks, condition }) => {
 };
 
 export default Loader;
+
+// https://github.com/leonardomeza87
