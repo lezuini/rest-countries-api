@@ -25,15 +25,14 @@ Users should be able to:
 ### Built with
 
 - [SASS](https://sass-lang.com) - CSS preprocessor.
-- Flexbox.
+- Flexbox and Grid.
 - Desktop-first workflow.
 - [React](https://reactjs.org) - JS library.
 - [React Router](https://reactrouter.com) - React library
 
 ### Useful resources
 
-- Hmm {•̃\_•̃}.
-- https://stackoverflow.com/questions/53071774/reactjs-delay-onchange-while-typing
+- [ReactJS delay onChange while typing](https://stackoverflow.com/questions/53071774/reactjs-delay-onchange-while-typing)
 
 ### More about me
 

@@ -3,6 +3,7 @@ import CardsGenerator from "../components/CardsGenerator";
 import Filter from "../components/Filter";
 import Loader from "../components/Loader";
 import SearchBar from "../components/SearchBar";
+import Transition from "../components/Transition";
 
 const scrollUp = () => {
   document.body.scrollTop = 0;
@@ -50,25 +51,27 @@ const Homepage = ({ data }) => {
   };
 
   return (
-    <div className="home">
-      <div className="utilities">
-        <SearchBar filterByQuery={filterByQuery} />
-        <Filter updateRegion={updateRegion} />
+    <Transition>
+      <div className="home">
+        <div className="utilities">
+          <SearchBar filterByQuery={filterByQuery} />
+          <Filter updateRegion={updateRegion} />
+        </div>
+        {countries.length ? (
+          <>
+            <CardsGenerator
+              countries={countries}
+              increaseChunk={updater}
+              setCondition={setCondition}
+              scrollUp={scrollUp}
+            />
+            <Loader increaseChunks={increaseChunks} condition={condition} />
+          </>
+        ) : (
+          <h1 className="empty-result">There is no result for your search</h1>
+        )}
       </div>
-      {countries.length ? (
-        <>
-          <CardsGenerator
-            countries={countries}
-            increaseChunk={updater}
-            setCondition={setCondition}
-            scrollUp={scrollUp}
-          />
-          <Loader increaseChunks={increaseChunks} condition={condition} />
-        </>
-      ) : (
-        <h1 className="empty-result">There is no result for your search</h1>
-      )}
-    </div>
+    </Transition>
   );
 };
 

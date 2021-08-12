@@ -48,7 +48,8 @@ $scroll-width: 17px;
   --text: #{$very-dark-blue-text};
   --input: #{$dark-gray};
   --hover: #{$none-shadow};
-  --opacity: #{$dark-opacity};
+  --opacity: #{$light-opacity};
+  --option: #{$dark-shadow};
 
   &--light {
     --element: #{$white};
@@ -332,6 +333,7 @@ $scroll-width: 17px;
   transition-property: transform, background-color, color, opacity;
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
+  animation: fade-in 0.2s ease-in-out forwards;
 
   &:hover {
     transform: scale(1.04);
@@ -366,7 +368,7 @@ $scroll-width: 17px;
       height: 100%;
       width: 100%;
       object-fit: cover;
-      color: var(--text);
+      color: transparent;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -415,7 +417,7 @@ $scroll-width: 17px;
     max-width: 560px;
     object-fit: cover;
     box-shadow: $box-shadow;
-    color: var(--text);
+    color: transparent;
     background-color: var(--option);
     transition: transition(background-color);
   }
@@ -489,6 +491,7 @@ $scroll-width: 17px;
             display: flex;
             justify-content: center;
             align-items: center;
+            text-align: left;
             width: 100%;
             height: 100%;
             padding: 0 12px;
@@ -497,7 +500,7 @@ $scroll-width: 17px;
             background-color: transparent;
             font-size: 14px;
             line-height: 14px;
-            white-space: nowrap;
+            white-space: normal;
             border-radius: math.div($border-radius, 2);
             cursor: pointer;
             transition-property: background-color, color, opacity;
@@ -605,6 +608,8 @@ $scroll-width: 17px;
 }
 
 .error-page {
+  height: 100%;
+
   .container {
     height: 100%;
     display: flex;
@@ -628,6 +633,10 @@ $scroll-width: 17px;
     font-size: 24px;
     line-height: 32px;
     width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -661,6 +670,20 @@ footer {
         background-color: var(--option);
       }
     }
+  }
+}
+
+.transition {
+  transition: transition(opacity);
+  animation: fade-in 0.2s ease-in-out forwards;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
@@ -740,10 +763,10 @@ footer {
 
     .text-container {
       padding: 64px 0 0;
-      width: 80%;
+      width: 70%;
 
       .details {
-        justify-content: flex-start;
+        justify-content: space-between;
 
         .part-1 {
           margin-right: 4rem;
@@ -781,15 +804,24 @@ footer {
     grid-template-columns: repeat(2, $card-width);
     justify-content: space-evenly;
   }
+
+  .country-page {
+    display: grid;
+    grid-template-columns: $card-width * 2.25;
+    justify-content: center;
+  }
+
+  .country-container {
+    .text-container {
+      width: 100%;
+    }
+  }
 }
 @media screen and (max-width: 856px) {
   .country-container {
     .img-container {
       display: flex;
       justify-content: center;
-    }
-    .text-container {
-      width: 90%;
     }
   }
 }
@@ -811,7 +843,7 @@ footer {
       width: 100%;
 
       img {
-        height: 300px;
+        height: 340px;
       }
     }
   }
@@ -825,6 +857,7 @@ footer {
   }
   .country-page {
     padding: 3rem 3rem;
+    display: flex;
   }
 }
 @media screen and (max-width: 640px) {
@@ -844,7 +877,7 @@ footer {
         flex-direction: column;
 
         strong {
-          margin-bottom: 2rem;
+          margin-bottom: 1rem;
         }
       }
     }
@@ -972,8 +1005,11 @@ footer {
             white-space: normal;
             word-wrap: break-word;
             height: max-content;
-            padding: 5px 12px;
-            line-height: 20px;
+
+            button {
+              padding: 5px 12px;
+              line-height: 20px;
+            }
           }
         }
       }
