@@ -4,11 +4,20 @@ import Filter from "../components/Filter";
 import Loader from "../components/Loader";
 import SearchBar from "../components/SearchBar";
 
+const scrollUp = () => {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+};
+
 const Homepage = ({ data }) => {
   const [countries, setCountries] = useState(data);
   const [region, setRegion] = useState("Filter by Region");
   const [updater, setUpdater] = useState(0);
   const [condition, setCondition] = useState(true);
+
+  useEffect(() => {
+    scrollUp();
+  }, []);
 
   const updateRegion = useCallback((re) => {
     setRegion(re);
@@ -18,7 +27,7 @@ const Homepage = ({ data }) => {
   const filterByQuery = useCallback(
     (query) => {
       let filteredData = data.filter((country) =>
-        country.name.toLowerCase().includes(query)
+        country.name.toLowerCase().includes(query.toLowerCase())
       );
       setCountries(filteredData);
     },
@@ -46,12 +55,19 @@ const Homepage = ({ data }) => {
         <SearchBar filterByQuery={filterByQuery} />
         <Filter updateRegion={updateRegion} />
       </div>
-      <CardsGenerator
-        countries={countries}
-        increaseChunk={updater}
-        setCondition={setCondition}
-      />
-      <Loader increaseChunks={increaseChunks} condition={condition} />
+      {countries.length ? (
+        <>
+          <CardsGenerator
+            countries={countries}
+            increaseChunk={updater}
+            setCondition={setCondition}
+            scrollUp={scrollUp}
+          />
+          <Loader increaseChunks={increaseChunks} condition={condition} />
+        </>
+      ) : (
+        <h1 className="empty-result">There is no result for your search</h1>
+      )}
     </div>
   );
 };

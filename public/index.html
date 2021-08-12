@@ -21,6 +21,23 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script>
+      const w = window,
+        d = document,
+        de = d.documentElement;
+
+      if (localStorage.getItem("theme") === null) {
+        const mediaQueryList = w.matchMedia("(prefers-color-scheme: light)");
+
+        if (mediaQueryList.matches) {
+          de.classList.add("theme--light");
+        } else {
+          de.classList.add("theme--dark");
+        }
+      } else {
+        de.classList.add(localStorage.getItem("theme"));
+      }
+    </script>
     <div id="root"></div>
     <!--
       This HTML file is a template.

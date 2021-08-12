@@ -11,7 +11,6 @@ import Footer from "./components/Footer";
 
 function App() {
   const [data, setData] = useState(null);
-  const [theme, setTheme] = useState("theme");
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -26,21 +25,14 @@ function App() {
       .catch((error) => {
         console.log(error);
         setError(true);
+        setLoading(false);
       });
   }, []);
 
-  const changeTheme = () => {
-    if (theme === "theme") {
-      setTheme("theme--dark");
-    } else {
-      setTheme("theme");
-    }
-  };
-
   return (
-    <div className={`app ${theme}`}>
+    <div className={`app`}>
       <Router basename="/rest-countries-api">
-        <Header changeTheme={changeTheme} />
+        <Header />
         {!loading ? (
           <Switch>
             <Route exact path="/">

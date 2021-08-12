@@ -15,7 +15,12 @@ const slice = (array, length) => {
   return slicedArray;
 };
 
-const CardsGenerator = ({ countries, increaseChunk, setCondition }) => {
+const CardsGenerator = ({
+  countries,
+  increaseChunk,
+  setCondition,
+  scrollUp,
+}) => {
   const [slicedCountries, setSlicedCountries] = useState(
     slice(countries, chunkLength)
   );
@@ -50,7 +55,9 @@ const CardsGenerator = ({ countries, increaseChunk, setCondition }) => {
         <h2>Nothing to see here</h2>
       ) : (
         cardsToRender.map((country) => {
-          return <Card country={country} key={country.name} />;
+          return (
+            <Card country={country} key={country.name} scrollUp={scrollUp} />
+          );
         })
       )}
     </div>

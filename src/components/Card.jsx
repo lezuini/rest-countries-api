@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
-const Card = ({ country }) => {
+const Card = ({ country, scrollUp }) => {
   return (
-    <Link to={`/${country.alpha3Code}`}>
+    <Link to={`/${country.alpha3Code}`} onClick={scrollUp}>
       <div className="card">
         <div className="flag-container">
           <img src={country.flag} alt={`${country.name} flag`} />

@@ -39,7 +39,9 @@ const CountryPage = ({ country, data }) => {
         </button>
       </Link>
       <div className="country-container">
-        <img src={country.flag} alt={`${country.name} flag`} />
+        <div className="img-container">
+          <img src={country.flag} alt={`${country.name} flag`} />
+        </div>
         <div className="text-container">
           <h1>{name}</h1>
           <div className="details">
@@ -83,17 +85,21 @@ const CountryPage = ({ country, data }) => {
           <div className="borders">
             <strong>Border Countries:</strong>
             <div className="container">
-              {newBorders.map((country) => {
-                return (
-                  <Link
-                    to={`/${country.alpha3Code}`}
-                    className="border"
-                    key={country.alpha3Code}
-                  >
-                    {country.name}
-                  </Link>
-                );
-              })}
+              {newBorders.length > 0 ? (
+                newBorders.map((country) => {
+                  return (
+                    <Link
+                      to={`/${country.alpha3Code}`}
+                      className="border"
+                      key={country.alpha3Code}
+                    >
+                      <button>{country.name}</button>
+                    </Link>
+                  );
+                })
+              ) : (
+                <p>None (This country is probably on an island)</p>
+              )}
             </div>
           </div>
         </div>

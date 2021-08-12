@@ -22,14 +22,9 @@ const ErrorPage = ({ error }) => {
             : `No results for the country code: ${code.toUpperCase()}`}
         </h1>
         {error && (
-          <button
-            className="retry"
-            onClick={() => {
-              document.location.reload();
-            }}
-          >
-            Retry
-          </button>
+          <a href="/rest-countries-api/" className="retry">
+            <button>Retry</button>
+          </a>
         )}
       </div>
     </div>
