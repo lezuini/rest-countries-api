@@ -11,8 +11,14 @@ const scrollUp = () => {
 };
 
 const Homepage = ({ data }) => {
-  const [countries, setCountries] = useState(data);
-  const [region, setRegion] = useState("Filter by Region");
+  const [countries, setCountries] = useState(
+    localStorage.getItem("countries")
+      ? JSON.parse(localStorage.getItem("countries"))
+      : data
+  );
+  const [region, setRegion] = useState(
+    localStorage.getItem("region") || "Filter by Region"
+  );
   const [updater, setUpdater] = useState(0);
   const [condition, setCondition] = useState(true);
 
@@ -22,18 +28,21 @@ const Homepage = ({ data }) => {
 
   const updateRegion = useCallback((re) => {
     setRegion(re);
+    localStorage.setItem("region", re);
     setUpdater(0);
   }, []);
 
-  const filterByQuery = useCallback(
-    (query) => {
-      let filteredData = data.filter((country) =>
-        country.name.toLowerCase().includes(query.toLowerCase())
-      );
-      setCountries(filteredData);
-    },
-    [data]
-  );
+  const filterByQuery = (query) => {
+    query = query
+      .toLowerCase()
+      .trim()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "");
+    let filteredData = data.filter((country) =>
+      country.name.toLowerCase().includes(query)
+    );
+    setCountries(filteredData);
+  };
 
   useEffect(() => {
     if (region === "Filter by Region") {
@@ -43,6 +52,9 @@ const Homepage = ({ data }) => {
     } else {
       let newData = data.filter((a) => a.region === region);
       setCountries(newData);
+      localStorage.setItem("countries", JSON.stringify(newData));
+
+      console.log(newData);
     }
   }, [region, data]);
 

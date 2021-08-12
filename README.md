@@ -33,6 +33,7 @@ Users should be able to:
 ### Useful resources
 
 - [ReactJS delay onChange while typing](https://stackoverflow.com/questions/53071774/reactjs-delay-onchange-while-typing)
+- [Remove accents/diacritics in a string in JavaScript](https://stackoverflow.com/questions/990904/remove-accents-diacritics-in-a-string-in-javascript)
 
 ### More about me
 

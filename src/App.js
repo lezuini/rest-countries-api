@@ -9,6 +9,9 @@ import Homepage from "./pages/Homepage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
+localStorage.removeItem("region");
+localStorage.removeItem("countries");
+
 function App() {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -30,7 +33,7 @@ function App() {
   }, []);
 
   return (
-    <div className={`app`}>
+    <div className="app">
       <Router>
         <Header />
         {!loading ? (

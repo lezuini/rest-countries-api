@@ -30,7 +30,8 @@ const Header = () => {
       </h1>
 
       <button onClick={switchTheme}>
-        {theme === light ? <Moon /> : <MoonFilled />} Dark Mode
+        {theme === light ? <Moon /> : <MoonFilled />}
+        {theme === light ? "Dark" : "Light"} Mode
       </button>
     </div>
   );

@@ -4,14 +4,19 @@ import { ReactComponent as Close } from "../images/close-outline.svg";
 
 const SearchBar = ({ filterByQuery }) => {
   const [query, setQuery] = useState("");
+  const [block, setBlock] = useState(true);
 
   const handleChange = (e) => {
     let { value } = e.target;
+    if (value === "") {
+      setBlock(false);
+    }
     setQuery(value);
   };
 
   const handleDelete = () => {
     setQuery("");
+    setBlock(false);
   };
   const handleEnter = (e) => {
     let { key } = e;
@@ -22,8 +27,13 @@ const SearchBar = ({ filterByQuery }) => {
 
   //Delay search to prevent renders on every change
   useEffect(() => {
-    const timeout = setTimeout(() => filterByQuery(query), 500);
-    return () => clearTimeout(timeout);
+    if (query !== "") {
+      const timeout = setTimeout(() => filterByQuery(query), 500);
+      return () => clearTimeout(timeout);
+    } else if (!block) {
+      setBlock(true);
+      filterByQuery(query);
+    }
   }, [query, filterByQuery]);
 
   return (
