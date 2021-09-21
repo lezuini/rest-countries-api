@@ -4,14 +4,47 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#202c37" />
+
+    <meta name="title" content="REST Countries API" />
     <meta
       name="description"
-      content="Integration of the REST Countries API with the design proposed by frontend mentor "
+      content="Integration of the REST Countries API with the design proposed by frontend mentor."
     />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://leonardomeza87.github.io/rest-countries-api"
+    />
+    <meta property="og:title" content="REST Countries API - Leonardo Meza" />
+    <meta
+      property="og:description"
+      content="Integration of the REST Countries API with the design proposed by frontend mentor."
+    />
+    <meta property="og:image" content="%PUBLIC_URL%/screenshot.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://leonardomeza87.github.io/rest-countries-api"
+    />
+    <meta
+      property="twitter:title"
+      content="REST Countries API - Leonardo Meza"
+    />
+    <meta
+      property="twitter:description"
+      content="Integration of the REST Countries API with the design proposed by frontend mentor."
+    />
+    <meta property="twitter:image" content="%PUBLIC_URL%/screenshot.png" />
+
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
     <title>REST Countries API</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -26,16 +59,23 @@
         d = document,
         de = d.documentElement;
 
-      if (localStorage.getItem("theme") === null) {
-        const mediaQueryList = w.matchMedia("(prefers-color-scheme: light)");
+      const light = "theme--light";
+      const dark = "theme--dark";
+
+      const t = localStorage.getItem("theme");
+
+      if (t === null || t !== light || t !== dark) {
+        const mediaQueryList = w.matchMedia("(prefers-color-scheme: dark)");
 
         if (mediaQueryList.matches) {
-          de.classList.add("theme--light");
+          de.classList.add(dark);
+          localStorage.setItem("theme", dark);
         } else {
-          de.classList.add("theme--dark");
+          de.classList.add(light);
+          localStorage.setItem("theme", light);
         }
       } else {
-        de.classList.add(localStorage.getItem("theme"));
+        de.classList.add(t);
       }
     </script>
     <div id="root"></div>

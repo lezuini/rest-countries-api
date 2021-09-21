@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
-import CardsGenerator from "../components/CardsGenerator";
+
 import Filter from "../components/Filter";
 import Loader from "../components/Loader";
 import SearchBar from "../components/SearchBar";
 import Transition from "../components/Transition";
+import CardsGenerator from "../components/CardsGenerator";
 
 const scrollUp = () => {
   document.body.scrollTop = 0;

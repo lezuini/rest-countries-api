@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import { ReactComponent as Search } from "../images/search.svg";
 import { ReactComponent as Close } from "../images/close-outline.svg";
 

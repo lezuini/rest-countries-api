@@ -620,7 +620,7 @@ $scroll-width: 17px;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 2rem;
+    padding: 3rem 5rem;
     text-align: center;
   }
   .container.error {
@@ -633,14 +633,22 @@ $scroll-width: 17px;
     text-align: center;
     color: var(--text);
     transition: transition(color);
-    margin-bottom: 2rem;
+    margin: auto 0;
     font-size: 24px;
     line-height: 32px;
     width: 100%;
-    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-weight: 600;
+
+    span {
+      margin-left: 1rem;
+      font-weight: 800;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+      padding: 0.25rem 0.75rem;
+    }
   }
 }
 
@@ -741,6 +749,7 @@ footer {
 @media screen and (max-width: 1280px) {
   .country-container {
     display: flex;
+
     .img-container {
       width: 560px;
       img {
@@ -857,6 +866,11 @@ footer {
   .home {
     padding: 3rem 3rem;
   }
+  .error-page {
+    .container {
+      padding: 3rem 3rem;
+    }
+  }
   .country-page {
     padding: 3rem 3rem;
     display: flex;
@@ -930,6 +944,18 @@ footer {
       }
     }
   }
+  .error-page {
+    .container {
+      h1 {
+        flex-direction: column;
+
+        span {
+          margin-top: 1rem;
+          margin-left: 0;
+        }
+      }
+    }
+  }
 }
 @media screen and (max-width: 530px) {
   .country-container {
@@ -971,6 +997,11 @@ footer {
   }
   .home {
     padding: 2rem 2rem;
+  }
+  .error-page {
+    .container {
+      padding: 2rem;
+    }
   }
   .countries-container {
     row-gap: 40px;
@@ -1015,6 +1046,14 @@ footer {
       }
     }
   }
+
+  .error-page {
+    .container {
+      h1 {
+        font-size: 18px;
+      }
+    }
+  }
 }
 @media screen and (max-width: 365px) {
   .header {
@@ -1027,6 +1066,11 @@ footer {
 @media screen and (max-width: 350px) {
   .home {
     padding: 2rem 1rem;
+  }
+  .error-page {
+    .container {
+      padding: 2rem 1rem;
+    }
   }
   .header {
     padding: 0 1rem;

@@ -20,7 +20,7 @@ Users should be able to:
 
 ### Screenshot
 
-![Screenshot](./src/images/screenshot.png)
+![Screenshot](./public/screenshot.png)
 
 ### Built with
 
