@@ -19,14 +19,19 @@ function App() {
 
   useEffect(() => {
     setLoading(true);
-    fetch("https://restcountries.eu/rest/v2/all")
+    fetch("https://restcountries.com/v2/all")
       .then((res) => res.json())
       .then((json) => {
-        setData(json);
-        setLoading(false);
+        if (json.message) {
+          // In case there are additional problems
+          throw new Error(json.message);
+        } else {
+          setData(json);
+          setLoading(false);
+        }
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
         setError(true);
         setLoading(false);
       });

@@ -42,7 +42,7 @@ const SearchBar = ({ filterByQuery }) => {
       <Search />
       <input
         type="text"
-        placeholder="Search for a country..."
+        placeholder="Search for a country ..."
         value={query}
         onChange={handleChange}
         onKeyUp={handleEnter}

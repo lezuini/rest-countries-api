@@ -1,8 +1,8 @@
 import { Link, useParams } from "react-router-dom";
 
-import Transition from "../components/Transition";
-
 import { ReactComponent as ArrowBack } from "../images/arrow-back.svg";
+
+import Transition from "../components/Transition";
 
 const ErrorPage = ({ error }) => {
   const { code } = useParams();

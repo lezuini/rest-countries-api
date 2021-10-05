@@ -650,6 +650,10 @@ $scroll-width: 17px;
       padding: 0.25rem 0.75rem;
     }
   }
+
+  .retry {
+    transition: background-color 0.2s ease-in-out;
+  }
 }
 
 footer {

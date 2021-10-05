@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
-import Transition from "../components/Transition";
-
 import { ReactComponent as ArrowBack } from "../images/arrow-back.svg";
+
+import Transition from "../components/Transition";
 
 const CountryPage = ({ country, data }) => {
   let {
@@ -26,11 +26,15 @@ const CountryPage = ({ country, data }) => {
 
   let newBorders = [];
 
-  for (let i = 0; i < borders.length; i++) {
-    [newBorders[i]] = data.filter(
-      (country) => country.alpha3Code === borders[i]
-    );
+  if (borders) {
+    for (let i = 0; i < borders.length; i++) {
+      [newBorders[i]] = data.filter(
+        (country) => country.alpha3Code === borders[i]
+      );
+    }
   }
+
+  console.log(country);
 
   return (
     <Transition>
@@ -43,7 +47,7 @@ const CountryPage = ({ country, data }) => {
         </Link>
         <div className="country-container">
           <div className="img-container">
-            <img src={country.flag} alt={`${country.name} flag`} />
+            <img src={country.flags.svg} alt={`${country.name} flag`} />
           </div>
           <div className="text-container">
             <h1>{name}</h1>
@@ -77,7 +81,7 @@ const CountryPage = ({ country, data }) => {
                 </p>
                 <p>
                   <strong>Currencies: </strong>
-                  {currencies[0].name}
+                  {currencies && currencies[0].name}
                 </p>
                 <p>
                   <strong>Languages: </strong>
@@ -89,15 +93,17 @@ const CountryPage = ({ country, data }) => {
               <strong>Border Countries:</strong>
               <div className="container">
                 {newBorders.length > 0 ? (
-                  newBorders.map((country) => {
+                  newBorders.map((el) => {
                     return (
-                      <Link
-                        to={`/${country.alpha3Code}`}
-                        className="border"
-                        key={country.alpha3Code}
-                      >
-                        <button>{country.name}</button>
-                      </Link>
+                      el && (
+                        <Link
+                          to={`/${el.alpha3Code}`}
+                          className="border"
+                          key={el.alpha3Code}
+                        >
+                          <button>{el.name}</button>
+                        </Link>
+                      )
                     );
                   })
                 ) : (
