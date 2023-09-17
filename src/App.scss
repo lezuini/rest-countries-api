@@ -142,6 +142,8 @@ $scroll-width: 17px;
   padding: 3rem 5rem;
   display: flex;
   flex-direction: column;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .utilities {
@@ -407,6 +409,8 @@ $scroll-width: 17px;
   display: flex;
   flex-direction: column;
   min-height: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .country-container {
