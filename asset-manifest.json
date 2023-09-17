@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/rest-countries-api/static/css/main.87fda67c.css",
+    "main.js": "/rest-countries-api/static/js/main.276d36ae.js",
+    "index.html": "/rest-countries-api/index.html",
+    "static/media/logo-github.svg": "/rest-countries-api/static/media/logo-github.bdd8bb6b593a1cce45e2247f78b0ee3b.svg",
+    "static/media/logo-twitter.svg": "/rest-countries-api/static/media/logo-twitter.da0be46b43521b5d70eda9aa11d09874.svg",
+    "static/media/search.svg": "/rest-countries-api/static/media/search.637c6b3cda86886896851393b6814a82.svg",
+    "static/media/moon.svg": "/rest-countries-api/static/media/moon.1d93a65e70fb661db2a3fbde738b7c88.svg",
+    "static/media/moon-filled.svg": "/rest-countries-api/static/media/moon-filled.b23d5034caafb99852f72859a44064a4.svg",
+    "static/media/arrow-back.svg": "/rest-countries-api/static/media/arrow-back.39940f16d2e2c3ab83c8b03b2434e4eb.svg",
+    "static/media/close-outline.svg": "/rest-countries-api/static/media/close-outline.a22b61b19784f65efa44a1bdacf3022d.svg",
+    "static/media/chevron-down.svg": "/rest-countries-api/static/media/chevron-down.6e2c90ee999455ca1ff08ddb133cf3ec.svg",
+    "main.87fda67c.css.map": "/rest-countries-api/static/css/main.87fda67c.css.map",
+    "main.276d36ae.js.map": "/rest-countries-api/static/js/main.276d36ae.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.87fda67c.css",
+    "static/js/main.276d36ae.js"
+  ]
+}
